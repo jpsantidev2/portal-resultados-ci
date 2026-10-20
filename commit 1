@@ -1,0 +1,6 @@
+/workspace/portal-resultados-ci
+├── data/candidatos.json
+├── src/buildReport.js
+├── scripts/checkVersionSync.js
+├── package.json
+└── Jenkinsfile
