@@ -1,6 +1,20 @@
-/workspace/portal-resultados-ci
-├── data/candidatos.json
-├── src/buildReport.js
-├── scripts/checkVersionSync.js
+portal-resultados-ci/
+├── data/
+│ └── candidatos.json
+├── public/
+│ └── index.html
+├── src/
+│ ├── validateCandidates.js
+│ └── buildReport.js
+├── scripts/
+│ ├── checkVersionSync.js
+│ ├── writeManifest.js
+│ └── qualityGate.js
+├── test/
+│ └── validateCandidates.test.js
 ├── package.json
+├── version.txt
+├── README.md
+├── ALTERACOES_DE_TESTE.md
 └── Jenkinsfile
+
