@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'built-in' }
     options {
         timestamps()
         timeout(time: 12, unit: 'MINUTES')
