@@ -1,5 +1,9 @@
 pipeline {
-    agent { label 'docker-ssh-jenkins-agent' }
+    agent { label 'mestre' }
+
+    tools {
+        nodejs 'NodeJS' // Usa a instalação de Node configurada no Jenkins
+    }
 
     parameters {
         choice(
@@ -36,8 +40,8 @@ pipeline {
 
         stage('2. Diagnosticar ambiente') {
             steps {
-                sh 'node --version'
-                sh 'npm --version'
+                sh 'node --version || export PATH=$PATH:/usr/local/bin; node --version'
+                sh 'npm --version || export PATH=$PATH:/usr/local/bin; npm --version'
                 sh 'find . -maxdepth 2 -type f | sort'
             }
         }
