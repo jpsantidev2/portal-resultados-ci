@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'docker-ssh-jenkins-agent' }
 
     parameters {
         choice(
