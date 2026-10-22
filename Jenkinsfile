@@ -1,18 +1,6 @@
 pipeline {
     agent { label 'mestre' }
 
-    tools {
-        nodejs 'NodeJS' // Usa a instalação de Node configurada no Jenkins
-    }
-
-    parameters {
-        choice(
-            name: 'ATRASO_PUBLICACAO',
-            choices: ['0', '20', '45'],
-            description: 'Segundos usados para observar o controle de concorrência.'
-        )
-    }
-
     options {
         timestamps()
         timeout(time: 12, unit: 'MINUTES')
@@ -23,6 +11,7 @@ pipeline {
     environment {
         APP_NAME = 'portal-resultados-ci'
         DIST_DIR = 'dist'
+        PATH = "/usr/local/bin:/usr/bin:/bin:${env.PATH}"
     }
 
     stages {
@@ -40,8 +29,8 @@ pipeline {
 
         stage('2. Diagnosticar ambiente') {
             steps {
-                sh 'node --version || export PATH=$PATH:/usr/local/bin; node --version'
-                sh 'npm --version || export PATH=$PATH:/usr/local/bin; npm --version'
+                sh 'node --version'
+                sh 'npm --version'
                 sh 'find . -maxdepth 2 -type f | sort'
             }
         }
